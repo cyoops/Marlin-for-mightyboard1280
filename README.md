@@ -19,10 +19,15 @@ G-code: Marlin
 
 
 ;START G-CODE;
+
 M104 T0 S{material_print_temperature}
+
 M140 S{material_bed_temperature}
+
 G28
+
 T0
+
 G1 X150 Y-70 Z30 F4800 ; move to wait position left hand side of the table
 M190 S{material_bed_temperature}
 M109 T0 S{material_print_temperature}
