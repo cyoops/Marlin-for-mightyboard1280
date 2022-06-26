@@ -12,8 +12,11 @@
 ---
 
 Cura 设置：
+
 X：227
+
 Y：148
+
 Z：150
 
 Rectangular
@@ -25,30 +28,51 @@ G-code: Marlin
 ---
 
 ;START G-CODE;
+
 M104 T0 S{material_print_temperature}
+
 M140 S{material_bed_temperature}
+
 G28
+
 T0
+
 G1 X150 Y-70 Z30 F4800 ; move to wait position left hand side of the table
+
 M190 S{material_bed_temperature}
+
 M109 T0 S{material_print_temperature}
+
 G92 E0
+
 G1 Z0.4 F1800
+
 G1 X110 Y-70 E20 F300 ; purge nozzle
+
 G1 X120 Y-70 Z0.15 F1200 ; slow wipe
+
 G1 X110 Y-70 Z0.5 F1200 ; lift
+
 G92 E0
+
 ;START G-CODE;
 
 ---
 
 ;END G-CODE;
+
 G1 X150 Y75 Z150 F1000 ; send Z axis to bottom of machine
+
 M140 S0; cool down HBP
+
 M104 T0 S0 ; cool down right extruder
+
 M104 T1 S0 ; cool down left extruder
+
 M127 ; stop blower fan
+
 M18 ; disable stepper
+
 ;END G-CODE;
 
 ---
